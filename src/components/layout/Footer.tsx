@@ -1,22 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FacebookFill12Icon } from "@/components/icons/garden-facebook-fill-12";
+import { LogoInstagramIcon } from "@/components/icons/famicons-logo-instagram";
+import { TiktokIcon } from "@/components/icons/cib-tiktok";
 import { buildWhatsappHref, siteConfig } from "@/lib/config";
+
+const SOCIAL_LINKS = [
+  { name: "Facebook", href: siteConfig.facebook || "#", icon: FacebookFill12Icon },
+  { name: "TikTok", href: siteConfig.tiktok || "#", icon: TiktokIcon },
+  { name: "Instagram", href: siteConfig.instagram || "#", icon: LogoInstagramIcon },
+];
 
 export function Footer() {
   return (
     <footer className="bg-ink text-white">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
-        <div>
+      <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
+        <div className="flex flex-wrap items-center gap-4">
           <Image
             src="/logo-talispa.png"
             alt="Talispa Beauty Studio"
             width={160}
             height={87}
-            className="h-12 w-auto brightness-0 invert"
+            className="h-[170px] w-auto"
           />
-          <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-white/45">
-            Belleza para tus manos y pies, con la dedicación que merecés.
-          </p>
+          <div className="flex items-center gap-2.5">
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:-translate-y-1 hover:text-rose-light"
+              >
+                <social.icon size={22} />
+              </a>
+            ))}
+          </div>
         </div>
 
         <div>

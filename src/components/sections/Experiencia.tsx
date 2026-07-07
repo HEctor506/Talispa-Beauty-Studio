@@ -26,10 +26,13 @@ export function Experiencia() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const images = preloadFrames(FRAMES);
     let currentFrame = 0;
 
     const draw = (index: number) => drawScrubFrame(ctx, canvas, images[index], FRAMES[index], index);
+
+    const images = preloadFrames(FRAMES, (index) => {
+      if (index === currentFrame) draw(index);
+    });
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;

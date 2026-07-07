@@ -45,10 +45,14 @@ export function drawScrubFrame(
   ctx.fillText(`foto · ${frame.label}`, cW / 2, cH - 28);
 }
 
-export function preloadFrames(frames: ScrubFrame[]): (HTMLImageElement | null)[] {
-  return frames.map((frame) => {
+export function preloadFrames(
+  frames: ScrubFrame[],
+  onLoad?: (index: number) => void
+): (HTMLImageElement | null)[] {
+  return frames.map((frame, index) => {
     if (!frame.src) return null;
     const img = new Image();
+    if (onLoad) img.onload = () => onLoad(index);
     img.src = frame.src;
     return img;
   });
