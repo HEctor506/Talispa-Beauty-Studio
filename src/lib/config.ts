@@ -4,7 +4,7 @@ export const siteConfig = {
   shortName: "Talispa",
   tagline: "Centro estético de uñas",
   description:
-    "Talispa Beauty Studio — manicura, pedicura, uñas artificiales, nail art y tratamientos. Reservá tu turno por WhatsApp.",
+    "Talispa Beauty Studio — manicura, pedicura, combos, tratamientos y retiros. Reservá tu turno por WhatsApp.",
   // TODO: reemplazar por el teléfono real del cliente
   phoneDisplay: process.env.NEXT_PUBLIC_PHONE ?? "+593 99 577 8990",
   // TODO: reemplazar por el número real de WhatsApp (solo dígitos, formato wa.me)

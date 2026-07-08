@@ -29,6 +29,20 @@ export function CategorySection({ category }: { category: CatalogCategory }) {
           </div>
         ))}
       </div>
+
+      {category.note && (
+        <div className="mt-5 rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+          <div className="font-heading text-lg font-semibold text-ink-text">{category.note.title}</div>
+          <ul className="mt-3 flex flex-col gap-2.5 text-sm leading-relaxed text-ink-text-light">
+            {category.note.items.map((item) => (
+              <li key={item} className="flex items-start gap-2.5">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-rose" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }

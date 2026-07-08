@@ -4,12 +4,18 @@ export type CatalogService = {
   price: string;
 };
 
+export type CatalogNote = {
+  title: string;
+  items: string[];
+};
+
 export type CatalogCategory = {
   id: string;
   name: string;
   navLabel: string;
   blurb: string;
   services: CatalogService[];
+  note?: CatalogNote;
 };
 
 export const catalog: CatalogCategory[] = [
@@ -17,86 +23,138 @@ export const catalog: CatalogCategory[] = [
     id: "manos",
     name: "Manos",
     navLabel: "Manos",
-    blurb: "Cuidado y belleza para tus manos",
+    blurb: "Cuidado, belleza y estructura para tus uñas",
     services: [
-      { name: "Manicura Básica", desc: "Corte, limado, cuidado de cutículas y brillo natural.", price: "13,90 €" },
-      { name: "Manicura Completa", desc: "Corte, limado, cutículas, exfoliación e hidratación.", price: "18,90 €" },
-      { name: "Manicura Spa", desc: "Manicura completa con exfoliación, masaje e hidratación profunda.", price: "24,90 €" },
+      {
+        name: "Manicura Clásica",
+        desc: "El cuidado esencial para unas manos impecables: Manicura Rusa, esmaltado tradicional, scrub, hidratación profunda y aceite para cutículas — dejando tus manos suaves y con un acabado limpio y elegante.",
+        price: "$10",
+      },
+      {
+        name: "Manicura Shine",
+        desc: "Ideal para un acabado brillante y elegante: Manicura Rusa, esmaltado semipermanente, scrub, hidratación profunda y aceite para cutículas.",
+        price: "$15",
+      },
+      {
+        name: "Manicura Strong",
+        desc: "Fortalece y protege la uña natural: Manicura Rusa, nivelación con Rubber Base, esmaltado semipermanente, scrub, hidratación profunda y aceite para cutículas.",
+        price: "$25",
+      },
+      {
+        name: "Manicura Luxury",
+        desc: "Experiencia premium que combina belleza, precisión y relajación: Manicura Rusa, extensiones Soft Gel, esmaltado semipermanente, hidratación profunda, masaje relajante de manos, aceite para cutículas y bebida de cortesía.",
+        price: "$35",
+      },
+      {
+        name: "Uñas Polygel",
+        desc: "Uñas resistentes, ligeras y de apariencia natural con extensiones esculpidas en Polygel: preparación con Manicura Rusa, scrub, hidratación, construcción y moldeado, esmaltado semipermanente y aceite para cutículas.",
+        price: "$45",
+      },
+      {
+        name: "Relleno Polygel",
+        desc: "Mantenimiento profesional: Manicura Rusa, relleno de la estructura existente, nivelación, corrección de crecimiento, esmaltado semipermanente y aceite para cutículas.",
+        price: "$28",
+      },
+      {
+        name: "Acrílicas",
+        desc: "Extensiones esculpidas.",
+        price: "$45",
+      },
     ],
   },
   {
-    id: "semi",
-    name: "Esmaltado Semipermanente",
-    navLabel: "Semipermanente",
-    blurb: "Color de larga duración",
+    id: "combos",
+    name: "Combos",
+    navLabel: "Combos",
+    blurb: "Manos y pies impecables en una sola cita",
     services: [
-      { name: "Semipermanente Color Liso", desc: "Aplicación de esmalte semipermanente de larga duración.", price: "14,90 €" },
-      { name: "Semipermanente con Nivelación", desc: "Refuerzo de la uña natural con base niveladora.", price: "19,90 €" },
-      { name: "Semipermanente Francesa", desc: "Acabado francés elegante y duradero.", price: "17,90 €" },
-      { name: "Semipermanente con Decoración", desc: "Incluye diseños sencillos o detalles decorativos.", price: "19,90 €" },
-    ],
-  },
-  {
-    id: "artificiales",
-    name: "Uñas Artificiales",
-    navLabel: "Artificiales",
-    blurb: "Extensiones y construcción a medida",
-    services: [
-      { name: "Uñas Gel", desc: "Extensión y construcción en gel con acabado profesional.", price: "45 €" },
-      { name: "Relleno Gel", desc: "Mantenimiento y relleno del crecimiento.", price: "30 €" },
-      { name: "Uñas Acrílicas", desc: "Extensiones resistentes y personalizadas.", price: "60 €" },
-      { name: "Relleno Acrílico", desc: "Corrección y mantenimiento de uñas acrílicas.", price: "40 €" },
-      { name: "Uñas Polygel", desc: "Extensiones ligeras con aspecto natural.", price: "50 €" },
-      { name: "Relleno Polygel", desc: "Mantenimiento y relleno de estructura.", price: "35 €" },
-    ],
-  },
-  {
-    id: "nailart",
-    name: "Nail Art",
-    navLabel: "Nail Art",
-    blurb: "Diseños y efectos para destacar",
-    services: [
-      { name: "Nail Art Básico", desc: "Diseños sencillos y minimalistas.", price: "15 €" },
-      { name: "Nail Art Premium", desc: "Diseños avanzados con técnicas y detalles especiales.", price: "25 €" },
-      { name: "Baby Boomer", desc: "Degradado elegante entre tonos naturales.", price: "20 €" },
-      { name: "Cat Eye", desc: "Efecto magnético con acabado brillante.", price: "20 €" },
-      { name: "Decoración con Cristales", desc: "Aplicación de cristales y detalles decorativos.", price: "10 €" },
+      {
+        name: "Talispa Clásico",
+        desc: "Manicura Rusa + Pedicura Rusa con esmaltado tradicional, scrub, hidratación profunda y aceite para cutículas. Acabado limpio, elegante y de larga duración.",
+        price: "$18",
+      },
+      {
+        name: "Talispa Shine",
+        desc: "Manicura Rusa con esmaltado semipermanente + Pedicura Spa Tradicional con esmaltado tradicional, scrub, hidratación, masaje relajante de pies y aceite para cutículas.",
+        price: "$22",
+      },
+      {
+        name: "Talispa Strong",
+        desc: "Manicura Rusa con nivelación en Rubber Base y esmaltado semipermanente + Pedicura Spa Tradicional con remoción de callosidades, scrub, hidratación profunda y masaje relajante.",
+        price: "$35",
+      },
+      {
+        name: "Talispa Glow",
+        desc: "El equilibrio perfecto entre belleza, cuidado y duración. Este combo incluye Manicura Rusa con esmaltado semipermanente y Pedicure Spa con esmaltado semipermanente, scrub, hidratación profunda, masaje relajante de pies y aplicación de aceite para cutículas. Diseñado para brindar un acabado impecable y una experiencia de relajación.",
+        price: "$30",
+      },
+      {
+        name: "Talispa Sculpt Duo",
+        desc: "Extensiones Dual System con esmaltado semipermanente + Pedicura Spa con esmaltado semipermanente, remoción de callosidades, scrub, hidratación profunda y masaje relajante.",
+        price: "$45",
+      },
+      {
+        name: "Talispa Luxury",
+        desc: "La máxima experiencia de belleza y bienestar: Manicura Rusa con extensiones Soft Gel y esmaltado semipermanente + Pedicura Spa Deluxe con esmaltado semipermanente, remoción de callosidades, scrub, hidratación profunda, masaje relajante con vela hidratante y aceite para cutículas.",
+        price: "$60",
+      },
     ],
   },
   {
     id: "pies",
     name: "Pies",
     navLabel: "Pies",
-    blurb: "Pedicura y cuidado integral",
+    blurb: "Cuidado esencial para pies saludables",
     services: [
-      { name: "Pedicura Básica", desc: "Corte, limado, cutículas y brillo.", price: "16,90 €" },
-      { name: "Pedicura Completa", desc: "Pedicura con exfoliación e hidratación.", price: "27,90 €" },
-      { name: "Pedicura Spa", desc: "Tratamiento completo con masaje y cuidado intensivo.", price: "35 €" },
-      { name: "Pedicura Semipermanente", desc: "Pedicura con esmalte semipermanente.", price: "20,90 €" },
-    ],
-  },
-  {
-    id: "retiros",
-    name: "Retiros",
-    navLabel: "Retiros",
-    blurb: "Retirada segura y profesional",
-    services: [
-      { name: "Retiro de Semipermanente", desc: "Retirada segura del esmalte semipermanente.", price: "10 €" },
-      { name: "Retiro de Gel", desc: "Retirada profesional de uñas de gel.", price: "15 €" },
-      { name: "Retiro de Acrílico", desc: "Eliminación profesional de uñas acrílicas.", price: "18 €" },
-      { name: "Retiro de Polygel", desc: "Retirada completa sin dañar la uña natural.", price: "16 €" },
+      {
+        name: "Pedicura Tradicional",
+        desc: "Pedicura Rusa, esmaltado tradicional, scrub, hidratación profunda y aceite para cutículas — pies suaves, saludables y con acabado impecable.",
+        price: "$12",
+      },
+      {
+        name: "Pedicura Semipermanente",
+        desc: "Pedicura Rusa con esmaltado semipermanente de larga duración: scrub, hidratación profunda y aceite para cutículas.",
+        price: "$18",
+      },
     ],
   },
   {
     id: "tratamientos",
     name: "Tratamientos",
     navLabel: "Tratamientos",
-    blurb: "Mimos extra para manos y uñas",
+    blurb: "Un momento para consentirte",
     services: [
-      { name: "Reparación de Uña", desc: "Reconstrucción o arreglo de uña dañada.", price: "3 €" },
-      { name: "Hidratación Profunda", desc: "Tratamiento nutritivo para manos y uñas.", price: "7 €" },
-      { name: "Exfoliación Premium", desc: "Exfoliación e hidratación intensiva.", price: "5 €" },
-      { name: "Parafina Manos", desc: "Tratamiento hidratante y reparador con parafina.", price: "10 €" },
+      {
+        name: "Manicura Spa",
+        desc: "Limpieza de manos, exfoliación con scrub profesional, mascarilla hidratante, toallas calientes, masaje relajante de manos y antebrazos, crema hidratante y aceite para cutículas.",
+        price: "$25",
+      },
+      {
+        name: "Pedicura Spa",
+        desc: "Tratamiento completo con remoción de callosidades, exfoliación (scrub), hidratación profunda y masaje relajante con vela hidratante — la cera se transforma en un aceite tibio con mantecas y aceites naturales que dejan la piel suave, luminosa y revitalizada.",
+        price: "$30",
+      },
     ],
+  },
+  {
+    id: "retiros",
+    name: "Retiros",
+    navLabel: "Retiros",
+    blurb: "Retirada profesional y segura",
+    services: [
+      {
+        name: "Retiro de Sistemas",
+        desc: "Retiro profesional y seguro de Acrílico, Polygel, Soft Gel, Builder Gel o Rubber Base — con técnicas que protegen la uña natural. Incluye Manicura Rusa, limpieza de la uña, hidratación y aceite para cutículas.",
+        price: "$18",
+      },
+    ],
+    note: {
+      title: "Política de Retiros",
+      items: [
+        "Retiro de sistema + Manicura Rusa (sin nuevo servicio): $18. Incluye retiro profesional, limpieza de la uña natural, Manicura Rusa, hidratación y aceite para cutículas.",
+        "Retiro de sistema para un nuevo servicio en Talispa Beauty Studio: $8 (aplica a sistemas realizados en Talispa).",
+        "Retiro de sistemas realizados en otros establecimientos: $10. Aplica cuando se realiza como parte de un nuevo servicio y está sujeto a evaluación del estado de las uñas.",
+      ],
+    },
   },
 ];

@@ -7,7 +7,7 @@ import { catalog } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Servicios | Talispa Beauty Studio",
-  description: "Catálogo completo de precios: manos, pies, uñas artificiales, nail art, retiros y tratamientos.",
+  description: "Catálogo completo de precios: manos, combos, pies, tratamientos y retiros.",
 };
 
 export default function ServiciosPage() {

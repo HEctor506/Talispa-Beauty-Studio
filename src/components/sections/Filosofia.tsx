@@ -24,7 +24,7 @@ export function Filosofia() {
         <Reveal direction="left" className="order-2 md:order-1">
           <div className="relative aspect-square overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
             <Image
-              src="/images/filosofia-manicura.png"
+              src="/images/photo3.jpeg"
               alt="Detalle de manicura en Talispa Beauty Studio"
               fill
               className="object-cover"
