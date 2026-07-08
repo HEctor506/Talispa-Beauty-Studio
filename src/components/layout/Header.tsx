@@ -88,26 +88,32 @@ export function Header() {
       </div>
 
       <div
-        className={`fixed inset-0 z-40 flex items-center justify-center bg-cream transition-transform duration-300 md:hidden ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-40 overflow-hidden md:hidden ${
+          menuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col items-center gap-7 text-center">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.label}>
-              <Link
-                href={resolveHref(item)}
-                onClick={() => setMenuOpen(false)}
-                className="font-heading text-3xl font-light text-ink-text transition-colors hover:text-rose"
-              >
-                {item.label}
-              </Link>
+        <div
+          className={`absolute inset-0 flex items-center justify-center bg-cream transition-transform duration-300 ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <ul className="flex flex-col items-center gap-7 text-center">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={resolveHref(item)}
+                  onClick={() => setMenuOpen(false)}
+                  className="font-heading text-3xl font-light text-ink-text transition-colors hover:text-rose"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <WhatsAppButton variant="cta" label="Reservar por WhatsApp" />
             </li>
-          ))}
-          <li>
-            <WhatsAppButton variant="cta" label="Reservar por WhatsApp" />
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </header>
   );

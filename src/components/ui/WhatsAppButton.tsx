@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { buildWhatsappHref } from "@/lib/config";
 
 type WhatsAppButtonVariant = "floating" | "nav" | "cta";
@@ -20,6 +23,37 @@ export function WhatsAppButton({
   message?: string;
   className?: string;
 }) {
+  const [visible, setVisible] = useState(variant !== "floating");
+
+  useEffect(() => {
+    if (variant !== "floating") return;
+
+    const hero = document.getElementById("hero");
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    let observer: IntersectionObserver | null = null;
+
+    const setup = () => {
+      observer?.disconnect();
+      if (!mobileQuery.matches || !hero) {
+        setVisible(true);
+        return;
+      }
+      observer = new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting), {
+        threshold: 0,
+      });
+      observer.observe(hero);
+    };
+
+    setup();
+    mobileQuery.addEventListener("change", setup);
+    return () => {
+      observer?.disconnect();
+      mobileQuery.removeEventListener("change", setup);
+    };
+  }, [variant]);
+
+  if (variant === "floating" && !visible) return null;
+
   return (
     <a
       href={buildWhatsappHref(message)}

@@ -11,7 +11,7 @@ const MAP_DIRECTIONS_URL =
 
 export function Visita() {
   return (
-    <section id="contacto" className="bg-cream py-24 md:py-32">
+    <section id="contacto" className="overflow-x-hidden bg-cream py-24 md:py-32">
       <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-8">
         <Reveal direction="left">
           <SectionEyebrow>Visitanos</SectionEyebrow>

@@ -19,7 +19,7 @@ const POINTS = [
 
 export function Filosofia() {
   return (
-    <section id="filosofia" className="bg-white py-24 md:py-32">
+    <section id="filosofia" className="overflow-x-hidden bg-white py-24 md:py-32">
       <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-8">
         <Reveal direction="left" className="order-2 md:order-1">
           <div className="relative aspect-square overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
