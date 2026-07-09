@@ -52,7 +52,7 @@ export function Header() {
         <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between gap-5 px-6 md:h-20 md:px-8">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo-talispa.png"
+              src="/new-horizontal-logo.png"
               alt="Talispa Beauty Studio"
               width={160}
               height={87}

@@ -17,7 +17,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div className="flex flex-wrap items-center gap-4">
           <Image
-            src="/logo-talispa.png"
+            src="/new-horizontal-logo.png"
             alt="Talispa Beauty Studio"
             width={160}
             height={87}
