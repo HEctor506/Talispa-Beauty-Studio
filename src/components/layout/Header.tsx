@@ -41,51 +41,61 @@ export function Header() {
   const isActive = (item: NavItem) => "href" in item && pathname === item.href;
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
-        scrolled
-          ? "bg-cream/90 shadow-[0_4px_30px_rgba(0,0,0,0.08)] backdrop-blur-md"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between gap-5 px-6 md:h-20 md:px-8">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/logo-talispa.png"
-            alt="Talispa Beauty Studio"
-            width={160}
-            height={87}
-            className="h-[100px] w-auto"
-            priority
-          />
-        </Link>
+    <>
+      <header
+        className={`sticky top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
+          scrolled
+            ? "bg-cream/90 shadow-[0_4px_30px_rgba(0,0,0,0.08)] backdrop-blur-md"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between gap-5 px-6 md:h-20 md:px-8">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo-talispa.png"
+              alt="Talispa Beauty Studio"
+              width={160}
+              height={87}
+              className="h-[100px] w-auto"
+              priority
+            />
+          </Link>
 
-        <nav className="hidden items-center gap-12 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.label}
-              href={resolveHref(item)}
-              className={`text-sm font-medium tracking-[0.02em] transition-colors hover:text-rose ${
-                isActive(item) ? "text-rose" : "text-ink-text"
+          <nav className="hidden items-center gap-12 md:flex">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.label}
+                href={resolveHref(item)}
+                className={`text-sm font-medium tracking-[0.02em] transition-colors hover:text-rose ${
+                  isActive(item) ? "text-rose" : "text-ink-text"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <WhatsAppButton variant="nav" label="Reservar" className="ml-40" />
+          </nav>
+
+          <button
+            type="button"
+            aria-label="Menú"
+            className="relative z-50 flex flex-col gap-1.5 p-1 md:hidden"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span
+              className={`h-0.5 w-6 rounded-full bg-ink-text transition-transform duration-300 ${
+                menuOpen ? "translate-y-2 rotate-45" : ""
               }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <WhatsAppButton variant="nav" label="Reservar" className="ml-40" />
-        </nav>
-
-        <button
-          type="button"
-          aria-label="Menú"
-          className="flex flex-col gap-1.5 p-1 md:hidden"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className="h-0.5 w-6 rounded-full bg-ink-text" />
-          <span className="h-0.5 w-6 rounded-full bg-ink-text" />
-          <span className="h-0.5 w-6 rounded-full bg-ink-text" />
-        </button>
-      </div>
+            />
+            <span className={`h-0.5 w-6 rounded-full bg-ink-text transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span
+              className={`h-0.5 w-6 rounded-full bg-ink-text transition-transform duration-300 ${
+                menuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
+      </header>
 
       <div
         className={`fixed inset-0 z-40 overflow-hidden md:hidden ${
@@ -115,6 +125,6 @@ export function Header() {
           </ul>
         </div>
       </div>
-    </header>
+    </>
   );
 }
